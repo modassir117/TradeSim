@@ -22,9 +22,7 @@ function App() {
   );
 
   const [stocks, setStocks] = useState(initialStocks);
-
   const [page, setPage] = useState("Dashboard");
-
   const [search, setSearch] = useState("");
 
   const [email, setEmail] = useState("");
@@ -80,15 +78,24 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
+  // LOGIN FUNCTION
   function login(e) {
     e.preventDefault();
 
     if (email === "admin" && password === "admin123") {
-      setCurrentUser({
+      const adminUser = {
         name: "Administrator",
         email: "admin",
+        password: password,
         role: "admin",
-      });
+      };
+
+      console.log("===== ADMIN LOGIN SUCCESSFUL =====");
+      console.log("Username:", email);
+      console.log("Password:", password);
+      console.log("Role:", "admin");
+
+      setCurrentUser(adminUser);
       return;
     }
 
@@ -97,12 +104,20 @@ function App() {
     );
 
     if (user) {
+      console.log("===== USER LOGIN SUCCESSFUL =====");
+      console.log("Name:", user.name);
+      console.log("Username / Email:", user.email);
+      console.log("Password:", password);
+      console.log("Role:", user.role);
+
       setCurrentUser(user);
     } else {
+      console.error("Invalid email or password!");
       alert("Invalid email or password!");
     }
   }
 
+  // SIGNUP FUNCTION
   function signup(e) {
     e.preventDefault();
 
@@ -126,15 +141,23 @@ function App() {
     setUsers([...users, newUser]);
     setCurrentUser(newUser);
 
+    console.log("===== NEW USER REGISTERED =====");
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Password:", password);
+    console.log("Role:", "user");
+
     alert("Account created successfully!");
   }
 
+  // LOGOUT FUNCTION
   function logout() {
     setCurrentUser(null);
     localStorage.removeItem("currentUser");
     setPage("Dashboard");
   }
 
+  // BUY STOCK
   function buyStock(stock) {
     const quantity = Number(prompt("Enter quantity to buy:"));
 
@@ -197,6 +220,7 @@ function App() {
     alert("Stock purchased successfully!");
   }
 
+  // SELL STOCK
   function sellStock(stock) {
     const holding = holdings.find(
       (item) => item.symbol === stock.symbol
@@ -251,7 +275,9 @@ function App() {
     return (
       <div className="auth-container">
         <div className="auth-box">
-          <div className="logo">TradeSim<span>Pro</span></div>
+          <div className="logo">
+            TradeSim<span>Pro</span>
+          </div>
 
           <h2>{isSignup ? "Create Account" : "Welcome Back"}</h2>
 
@@ -266,6 +292,7 @@ function App() {
                 placeholder="Full Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
             )}
 
@@ -274,6 +301,7 @@ function App() {
               placeholder="Email or Admin Username"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
 
             <input
@@ -281,15 +309,17 @@ function App() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
 
-            <button className="primary-btn">
+            <button className="primary-btn" type="submit">
               {isSignup ? "Create Account" : "Login"}
             </button>
           </form>
 
           <p className="switch-text">
             {isSignup ? "Already have an account?" : "New user?"}
+
             <span onClick={() => setIsSignup(!isSignup)}>
               {isSignup ? " Login" : " Sign Up"}
             </span>
@@ -407,6 +437,7 @@ function App() {
               <p className="muted">
                 Explore stocks and start virtual trading.
               </p>
+
               <button
                 className="primary-btn small-btn"
                 onClick={() => setPage("Market")}
