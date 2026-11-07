@@ -1,0 +1,338 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6fb;
+  color: #1e293b;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #101827;
+  padding: 20px;
+}
+
+.auth-box {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: 800;
+  color: #2563eb;
+}
+
+.logo span {
+  color: #16a34a;
+}
+
+.auth-box h2 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.muted {
+  color: #94a3b8;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.auth-box form {
+  margin-top: 25px;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border: 1px solid #dbe2ea;
+  border-radius: 8px;
+  outline: none;
+}
+
+.primary-btn {
+  background: #2563eb;
+  color: white;
+  padding: 14px;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.primary-btn:hover {
+  background: #1d4ed8;
+}
+
+.switch-text {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.switch-text span {
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.demo-info {
+  background: #eff6ff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 25px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.demo-info p {
+  margin-top: 5px;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 245px;
+  background: #101827;
+  color: white;
+  padding: 25px 18px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.sidebar .logo {
+  margin-bottom: 45px;
+}
+
+.menu-title {
+  color: #64748b;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.nav-item {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 8px;
+  background: transparent;
+  color: #cbd5e1;
+  text-align: left;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: #2563eb;
+  color: white;
+}
+
+.logout-btn {
+  margin-top: auto;
+  background: #dc2626;
+  color: white;
+  padding: 13px;
+  border-radius: 8px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  min-width: 0;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.topbar h2 {
+  font-size: 25px;
+}
+
+.user-badge {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 10px 16px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.welcome-banner {
+  background: linear-gradient(120deg, #1d4ed8, #2563eb, #0f766e);
+  color: white;
+  padding: 35px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+}
+
+.welcome-banner h1 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  background: white;
+  padding: 23px;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
+}
+
+.stat-card p {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.stat-card h2 {
+  font-size: 23px;
+}
+
+.content-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
+}
+
+.content-card h2 {
+  margin-bottom: 20px;
+}
+
+.small-btn {
+  width: auto;
+  margin-top: 20px;
+  padding: 12px 20px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px;
+  border: 1px solid #dbe2ea;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 550px;
+}
+
+th,
+td {
+  padding: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  color: #64748b;
+  background: #f8fafc;
+}
+
+.buy-btn,
+.sell-btn {
+  padding: 9px 15px;
+  border-radius: 6px;
+  color: white;
+  margin-right: 7px;
+}
+
+.buy-btn {
+  background: #16a34a;
+}
+
+.sell-btn {
+  background: #dc2626;
+}
+
+.green {
+  color: #16a34a;
+}
+
+.red {
+  color: #dc2626;
+}
+
+.empty-text {
+  text-align: center;
+  padding: 30px;
+  color: #94a3b8;
+}
+
+@media (max-width: 1000px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar .logo {
+    margin-bottom: 20px;
+  }
+
+  .logout-btn {
+    margin-top: 15px;
+  }
+
+  .main-content {
+    padding: 18px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-banner h1 {
+    font-size: 22px;
+  }
+
+  .auth-box {
+    padding: 25px;
+  }
+}
